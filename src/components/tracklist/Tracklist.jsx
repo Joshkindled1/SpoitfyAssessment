@@ -2,11 +2,17 @@ import React from 'react';
 import './Tracklist.css';
 import Track from '../track/Track.jsx';
 
-function Tracklist() {
+function Tracklist({searchResults, onAdd, onRemoval, onRemove}) {
+
+  console.log("tracklist results", searchResults);
+
   return (
     <div className="TrackList">
     {/* <!-- You will add a map method that renders a set of Track components  --> */}
-    <Track />
+    {searchResults && searchResults.map((track)=>
+
+    <Track track = {track} onAdd = {onAdd} onRemoval={onRemoval} onRemove ={onRemove}/>
+    )}
 
 </div>
   )
